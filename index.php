@@ -28,6 +28,15 @@ $f3->route('GET /breakfast', function() {
     echo $view->render('views/bfast.html');    //filename and route name don't have to be the same!
 });
 
+//Breakfast - green eggs & ham route
+$f3->route('GET /breakfast/green-eggs', function() {
+    //echo '<h1>Welcome to my Breakfast Page</h1>';
+
+    $view = new Template();
+    echo $view->render('views/greenEggsAndHam.html');    //filename and route name don't have to be the same!
+                                                        // you can match any route to any page
+});
+
 //Run F3
 $f3->run();               // -> to run instance methods
 
