@@ -22,10 +22,10 @@ $f3->route('GET /', function() {
 
 //Breakfast route
 $f3->route('GET /breakfast', function() {
-    echo '<h1>Welcome to my Breakfast Page</h1>';
+    //echo '<h1>Welcome to my Breakfast Page</h1>';
 
-    //$view = new Template();
-    //echo $view->render('views/home.html');
+    $view = new Template();
+    echo $view->render('views/bfast.html');    //filename and route name don't have to be the same!
 });
 
 //Run F3
