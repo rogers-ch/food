@@ -37,6 +37,46 @@ $f3->route('GET /breakfast/green-eggs', function() {
                                                         // you can match any route to any page
 });
 
+//Lunch route
+$f3->route('GET /lunch', function() {
+    //echo '<h1>Welcome to my Breakfast Page</h1>';
+
+    $view = new Template();
+    echo $view->render('views/lunchView.html');    //filename and route name don't have to be the same!
+    // you can match any route to any page
+});
+
+//Lunch - turkey panini route
+$f3->route('GET /lunch/turkey-panini', function() {
+    //echo '<h1>Welcome to my Breakfast Page</h1>';
+
+    $view = new Template();
+    echo $view->render('views/turkeysandwich.html');    //filename and route name don't have to be the same!
+    // you can match any route to any page
+});
+
+//form
+$f3->route('GET|POST /order', function ($f3){
+
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+        //validate the data
+        if(empty($_POST['food'])){
+            echo"<p>Please enter a food</p>";
+        }
+        //data is valid
+        else{
+            $f3->reroute('summary');
+        }
+
+    }
+
+    $view = new Template();
+    echo $view->render("views/order.html");
+
+
+});
+
+
 //Run F3
 $f3->run();               // -> to run instance methods
 
